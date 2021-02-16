@@ -1,19 +1,13 @@
 package demoqa.pages;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import java.io.File;
 import java.util.List;
-import java.util.Map;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static demoqa.constants.Config.URL_TO_PRACTICE_FORM;
-import static java.lang.String.format;
-import static org.openqa.selenium.By.xpath;
 
 public class FormPage_DZ_4 {
 
@@ -21,32 +15,20 @@ public class FormPage_DZ_4 {
             firstNameInput = $x("//input[@id='firstName']"),
             lastNameInput = $x("//input[@id='lastName']"),
             emailFormInput = $x("//input[@id='userEmail']"),
-            maleGenderInput = $x("//label[contains(text(),'Male')]"),
-            femaleGenderInput = $x("//label[contains(text(),'Female')]"),
-            otherGenderInput = $x("//label[contains(text(),'Other')]"),
             mobileNumberInput = $x("//input[@id='userNumber']"),
             dateOfBirthInput = $x("//input[@id='dateOfBirthInput']"),
             monthOfBirthInput = $(".react-datepicker__month-select"),
             yearOfBirthInput = $(".react-datepicker__year-select"),
-            subjectsInput = $x("//input[@id='subjectsInput']"),
-            hobbiesInputSports = $x("//label[contains(text(),'Sports')]"),
-            hobbiesInputReading = $x("//label[contains(text(),'Reading')]"),
             hobbiesInputMusic = $x("//label[contains(text(),'Music')]"),
             uploadPictureButton = $x("//input[@id='uploadPicture']"),
             currentAddressInput = $x("//textarea[@id='currentAddress']"),
             selectStateInput = $x("//input[@id='react-select-3-input']"),
             selectCityInput = $x("//input[@id='react-select-4-input']"),
+            subjectsInputCollection = $x("//*[@id=\"subjectsContainer\"]//input"),
             submitButton = $x("//button[@id='submit']");
 
-    public static final String MODAL_SETTING_VALUE_BY_NAME = "//div[@class='modal-body']//td[.='%s']//following-sibling::td";
-
-
-    private ElementsCollection
-            subjectsInputCollection = $$x("//*[@id=\"subjectsContainer\"]//input");
-
-
     public FormPage_DZ_4 openFormPage() {
-        open(URL_TO_PRACTICE_FORM);
+        open("/");
         return this;
     }
 
@@ -119,14 +101,9 @@ public class FormPage_DZ_4 {
 
     public FormPage_DZ_4 selectSubjects(List<String> subjects) {
         for (String subject : subjects) {
-            subjectsInputCollection.get(0).setValue(subject).pressEnter();
+            subjectsInputCollection.setValue(subject).pressEnter();
         }
         return this;
-    }
-
-    public static void checkUserData(Map<String, String> userDataMap) {
-        userDataMap.forEach((key, value) ->
-                $(xpath(format(MODAL_SETTING_VALUE_BY_NAME, key))).shouldHave(exactText(value)));
     }
 
 

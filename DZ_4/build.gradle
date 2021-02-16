@@ -22,9 +22,9 @@ allure {
 
 dependencies {
     implementation "com.codeborne:selenide:${selenideVersion}"
-    testImplementation "io.qameta.allure:allure-selenide:${allureVersion}"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
+    implementation "io.qameta.allure:allure-selenide:${allureVersion}"
+    implementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    implementation "org.junit.jupiter:junit-jupiter-params:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     implementation "com.github.javafaker:javafaker:1.0.2"
 }

@@ -1,8 +1,6 @@
 package demoqa.tests;
 
 import demoqa.config.ConfigTestLaunch_DZ_4;
-
-import demoqa.constants.UserTestData_DZ_4;
 import demoqa.pages.FormPage_DZ_4;
 import org.junit.jupiter.api.Test;
 
@@ -12,11 +10,11 @@ import java.util.Map;
 import static demoqa.constants.UserTestData_DZ_4.*;
 import static demoqa.pages.ThanksSubmittingPage_DZ_4.*;
 import static io.qameta.allure.Allure.step;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
 
     FormPage_DZ_4 formPage = new FormPage_DZ_4();
+
     private final String USER_FIRST_NAME = faker.name().firstName();
     private final String USER_LAST_NAME = faker.name().lastName();
     private final String USER_EMAIL = faker.internet().emailAddress();
@@ -39,14 +37,12 @@ public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
                     .typeCurrentAddress(USER_CURRENT_ADDRESS)
                     .selectStateAndCity(USER_STATE, USER_CITY)
                     .clickOnSubmitButton();
-            FormPage_DZ_4.checkUserData(expectedUserData());
+            checkUserData(expectedUserData());
 
         });
         step("Check Thanks for submitting the form", () -> {
-            assertTrue(modalPageIsExist(), "Modal page didn't load");
-            assertTrue(checkModalTitle("Thanks for submitting the form"),
-                    "Modal title is incorrect, check it");
-
+            checkModalPage("Modal page didn't load");
+            checkModalTitle("Thanks for submitting the form");
         });
 
     }
@@ -65,6 +61,5 @@ public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
         mapUserData.put("State and City", "NCR Delhi");
         return mapUserData;
     }
-
 
 }

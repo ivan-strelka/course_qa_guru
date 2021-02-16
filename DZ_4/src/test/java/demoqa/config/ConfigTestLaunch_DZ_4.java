@@ -12,6 +12,7 @@ public class ConfigTestLaunch_DZ_4 {
 
     @BeforeAll
     static void setup() {
+        Configuration.baseUrl = "https://demoqa.com/automation-practice-form";
         Configuration.startMaximized = true;
         Configuration.timeout = 10000;
         Configuration.screenshots = true;

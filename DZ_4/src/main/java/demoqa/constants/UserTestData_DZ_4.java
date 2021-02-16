@@ -1,15 +1,8 @@
 package demoqa.constants;
 
-import com.github.javafaker.Faker;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UserTestData_DZ_4 {
-
-    private Faker faker = new Faker();
-
 
     public static final String USER_DATA_OF_BIRTH = "12";
     public static final String USER_MONTH_OF_BIRTH = "April";
@@ -23,8 +16,5 @@ public class UserTestData_DZ_4 {
     public static final String USER_OTHER_GENDER = "Other";
     public static final String USER_HOBBIES = "Sports";
     public static final String USER_PIC_NAME = "img.png";
-
-
-
 
 }
