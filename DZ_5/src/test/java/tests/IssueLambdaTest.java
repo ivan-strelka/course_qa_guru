@@ -54,6 +54,5 @@ public class IssueLambdaTest extends Config {
             $(byText(ISSUE_NUMBER + " opened")).shouldBe(visible);
         });
 
-
     }
 }
