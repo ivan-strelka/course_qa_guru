@@ -24,10 +24,10 @@ public class IssueSelenideTest extends Config {
     @Tags({@Tag("web"), @Tag("critical")})
     @Link(name = "Base URL ТЕСТ", value = BASE_URL)
     @Severity(SeverityLevel.CRITICAL)
-    @Test
 
     @Feature("Issues")
     @Story("Поиск существующих Issues c голым Selenide")
+    @Test
     @DisplayName("Поиск Issue по номеру в репозитории")
     void checkIssueNumPureSelenideTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
