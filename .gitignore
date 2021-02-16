@@ -53,3 +53,4 @@ gen/
 captures/
 output.json
 /settings.gradle
+/*/gradle/
