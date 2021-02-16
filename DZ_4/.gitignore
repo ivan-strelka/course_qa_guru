@@ -1,16 +1,4 @@
-.idea/
-target
-out
-*.iml
-.allure/
-allure-results
-allure-report
-/api/.allure/
-/allure-report/
-build
-*.txt
-
-# Compiled class file
+ Compiled class file
 *.class
 
 # Log file
@@ -22,6 +10,9 @@ build
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# Properties files
+*.properties
+
 # Package Files #
 *.jar
 *.war
@@ -30,13 +21,15 @@ build
 *.zip
 *.tar.gz
 *.rar
-*.apk
-*.ap_
-*.dex
-
+*.iml
 
 # Project gen files
-/build/
+.idea
+.allure/
+.gradle/
+allure-results/
+gradle/
+build/
 bin/
 out/
 logs/
@@ -45,11 +38,5 @@ target/
 .project
 .settings/org.eclipse.buildship.core.prefs
 .vscode
-.env
-/.idea/
-gen/
-.gradle
-.navigation
-captures/
-output.json
-/settings.gradle
+/gradlew
+/gradlew.bat
