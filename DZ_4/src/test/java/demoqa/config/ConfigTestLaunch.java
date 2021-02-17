@@ -6,7 +6,7 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
-public class ConfigTestLaunch_DZ_4 {
+public class ConfigTestLaunch {
     public Faker faker = new Faker();
 
 

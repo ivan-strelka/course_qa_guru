@@ -1,25 +1,24 @@
 package demoqa.tests;
 
-import demoqa.config.ConfigTestLaunch_DZ_4;
-import demoqa.pages.FormPage_DZ_4;
+import demoqa.config.ConfigTestLaunch;
+import demoqa.pages.FormPage;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static demoqa.constants.UserTestData_DZ_4.*;
-import static demoqa.pages.ThanksSubmittingPage_DZ_4.*;
+import static demoqa.constants.UserTestData.*;
+import static demoqa.pages.ThanksSubmittingPage.*;
 import static io.qameta.allure.Allure.step;
 
-public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
-
-    FormPage_DZ_4 formPage = new FormPage_DZ_4();
+public class FormPageTest extends ConfigTestLaunch {
 
     private final String USER_FIRST_NAME = faker.name().firstName();
     private final String USER_LAST_NAME = faker.name().lastName();
     private final String USER_EMAIL = faker.internet().emailAddress();
     private final String USER_MOBILE_PHONE = faker.phoneNumber().subscriberNumber(10);
     private final String USER_CURRENT_ADDRESS = faker.address().streetAddress();
+    FormPage formPage = new FormPage();
 
     @Test
     void checkFillAllFormsOnPage() {
@@ -37,12 +36,11 @@ public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
                     .typeCurrentAddress(USER_CURRENT_ADDRESS)
                     .selectStateAndCity(USER_STATE, USER_CITY)
                     .clickOnSubmitButton();
-            checkUserData(expectedUserData());
-
         });
         step("Check Thanks for submitting the form", () -> {
-            checkModalPage("Modal page didn't load");
+            checkModalPage();
             checkModalTitle("Thanks for submitting the form");
+            checkUserData(expectedUserData());
         });
 
     }
@@ -51,14 +49,14 @@ public class FormPageDZ4Test extends ConfigTestLaunch_DZ_4 {
         Map<String, String> mapUserData = new HashMap<>();
         mapUserData.put("Student Name", USER_FIRST_NAME + " " + USER_LAST_NAME);
         mapUserData.put("Student Email", USER_EMAIL);
-        mapUserData.put("Gender", "Male");
+        mapUserData.put("Gender", USER_MALE_GENDER);
         mapUserData.put("Mobile", USER_MOBILE_PHONE);
-        mapUserData.put("Date of Birth", "12 April,1995");
-        mapUserData.put("Subjects", "Maths, Hindi");
-        mapUserData.put("Hobbies", "Sports");
-        mapUserData.put("Picture", "img.png");
+        mapUserData.put("Date of Birth", USER_DATA_OF_BIRTH + " " + USER_MONTH_OF_BIRTH + "," + USER_YEAR_OF_BIRTH);
+        mapUserData.put("Subjects", USER_SUBJECTS.get(0) + ", " + USER_SUBJECTS.get(1));
+        mapUserData.put("Hobbies", USER_HOBBIES);
+        mapUserData.put("Picture", USER_PIC_NAME);
         mapUserData.put("Address", USER_CURRENT_ADDRESS);
-        mapUserData.put("State and City", "NCR Delhi");
+        mapUserData.put("State and City", USER_STATE + " " + USER_CITY);
         return mapUserData;
     }
 

@@ -1,14 +1,15 @@
 package demoqa.constants;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class UserTestData_DZ_4 {
+public class UserTestData {
 
     public static final String USER_DATA_OF_BIRTH = "12";
     public static final String USER_MONTH_OF_BIRTH = "April";
     public static final String USER_YEAR_OF_BIRTH = "1995";
-    public static final List<String> USER_SUBJECTS = List.of("Maths", "Hindi");
-    public static final String USER_PHOTO_PATH = "C:\\repo\\qa_guru\\DZ_4\\src\\test\\resources\\img.png";
+    public static final List<String> USER_SUBJECTS = Arrays.asList("Maths", "Hindi");
+    public static final String USER_PHOTO_PATH = "src\\test\\resources\\img.png";
     public static final String USER_STATE = "NCR";
     public static final String USER_CITY = "Delhi";
     public static final String USER_MALE_GENDER = "Male";
