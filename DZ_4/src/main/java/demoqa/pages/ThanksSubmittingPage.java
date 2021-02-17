@@ -5,9 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import java.util.Map;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-import static org.openqa.selenium.By.xpath;
 
 public class ThanksSubmittingPage {
 
@@ -21,7 +19,7 @@ public class ThanksSubmittingPage {
 
     public static void checkUserData(Map<String, String> userDataMap) {
         userDataMap.forEach((key, value) ->
-                $(xpath(String.format(MODAL_SETTING_VALUE_BY_NAME, key))).shouldHave(exactText(value)));
+                $x((String.format(MODAL_SETTING_VALUE_BY_NAME, key))).shouldHave(exactText(value)));
     }
 
     public static void checkModalPage() {
