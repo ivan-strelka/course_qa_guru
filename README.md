@@ -1,1 +1,1 @@
-# course_qa_guru
+# Full course of qa_guru shcool 
